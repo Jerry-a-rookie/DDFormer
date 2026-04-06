@@ -1,63 +1,58 @@
 # DDFormer: Dual-Domain Transformer with Flexible Channel Dependence Strategy for Time Series Anomaly Detection
 
-[![Paper](https://img.shields.io/badge/Paper-Elsevier-blue)](URL_TO_YOUR_PAPER)
+[![Paper](https://img.shields.io/badge/Paper-Elsevier-blue)](INSERT_YOUR_PAPER_URL_HERE)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![PyTorch 2.5](https://img.shields.io/badge/PyTorch-2.5.1-red.svg)](https://pytorch.org/)
 
-This is the official implementation of **DDFormer**, a Transformer-based model designed for Multivariate Time Series Anomaly Detection (MTSAD). [cite_start]DDFormer addresses the challenges of inter-channel correlations and multi-scale temporal patterns to prevent system failures in real-world applications[cite: 11, 14].
+This repository contains the official implementation of **DDFormer**, a Transformer-based model for Multivariate Time Series Anomaly Detection (MTSAD). [cite_start]DDFormer effectively addresses "cross-channel contamination" and multi-scale temporal modeling through a dual-domain approach [cite: 14-16].
 
 ---
 
 ## 🌟 Research Highlights
 
-* [cite_start]**Flexible Channel Dependence (FCD) Strategy**: Mitigates "cross-channel contamination" by establishing selective and directed interactions[cite: 3, 12, 46].
-* [cite_start]**Dual-Domain Fusion**: Measures channel correlations using both time-domain and frequency-domain information[cite: 4, 15].
-* [cite_start]**Multi-Scale Temporal Modeling**: Captures dependencies through Multi-scale Patching and a Global-Local attention mechanism[cite: 5, 17].
-* [cite_start]**Superior Performance**: Achieves an average improvement of **7.12% in F1-score** over state-of-the-art methods[cite: 6, 19].
+* [cite_start]**Flexible Channel Dependence (FCD) Strategy**: Mitigates cross-channel contamination by establishing selective and directed channel interactions[cite: 3, 46].
+* [cite_start]**Dual-Domain Fusion**: Measures inter-channel correlations by adaptively fusing time- and frequency-domain information[cite: 4, 15].
+* [cite_start]**Comprehensive Multi-Scale Modeling**: Employs multi-scale patching and a Global-Local attention mechanism to capture dependencies across different temporal resolutions and spans[cite: 5, 18].
+* [cite_start]**State-of-the-Art Performance**: DDFormer achieves an average improvement of **7.12% in F1-score** over existing SOTA methods across five benchmark datasets[cite: 6, 19].
 
 ---
 
-## 🏗️ Model Architecture
+## 🏗️ Architecture & Methodology
 
-[cite_start]DDFormer jointly models temporal and channel dimensions through six core stages[cite: 190, 199]:
-1.  [cite_start]**Input Normalization**: Standardizes the multivariate sequences[cite: 191].
-2.  [cite_start]**FTCD Layer**: Computes asymmetric interaction info using parallel frequency and time branches[cite: 192].
-3.  [cite_start]**Channel Mask Encoding**: Refines correlations using an attention-based encoder[cite: 193].
-4.  [cite_start]**Multi-Scale Patching**: Covers diverse temporal resolutions via multi-granularity patch extraction[cite: 104, 194].
-5.  [cite_start]**Global-Local Attention**: Captures dependencies across different temporal spans (local details vs. global trends)[cite: 104, 195].
-6.  [cite_start]**Contrastive Learning**: Computes similarity between global and local representations to derive the anomaly score[cite: 196].
+[cite_start]DDFormer jointly models temporal and channel dimensions through six core stages: Input Normalization, Frequency & Time Channel Distance Layer (FTCD), Channel Mask Encoding, Multi-Scale Patching, Global-Local Attention, and Contrastive Learning [cite: 191-196].
 
-![DDFormer Architecture](figures/Figure_3.jpg)
-[cite_start]*Figure 1: Overall framework of DDFormer, including the Channel Mask Encoder and Global-Local Attention modules[cite: 240, 241].*
+![DDFormer Architecture](figures/Figure_3.png)
+[cite_start]*Figure 1: Overall framework of DDFormer, detailing the Channel Mask Encoder and Global-Local Attention modules[cite: 190].*
 
-### 🔬 The Channel Mask Encoder (CME)
-[cite_start]The CME generates a sparse directed channel attention map to filter out noise while retaining beneficial inter-channel dependencies[cite: 269, 290]. [cite_start]It utilizes the **Gumbel-Softmax** reparameterization trick to ensure the mask matrix is differentiable[cite: 293].
+### Channel Mask Encoder (CME)
+[cite_start]The CME utilizes a **Gumbel-Softmax** reparameterization trick to generate a differentiable, sparse, and directed binary mask[cite: 290, 293]. [cite_start]This ensures that only relevant channels provide information guidance, preserving the robustness of channel independence where necessary[cite: 270, 276].
 
 ![CME Algorithm](figures/image_8dab4c.png)
 [cite_start]*Algorithm 1: Workflow of the Channel Mask Encoder[cite: 320].*
 
 ---
 
-## 📊 Performance Comparison
+## 📊 Performance
 
-[cite_start]DDFormer consistently outperforms baselines such as Anomaly Transformer, TimesNet, and MambaAD across five benchmark datasets: **MSL, NIPS-TS-GECCO, SMAP, SMD, and SWAT**[cite: 435, 492].
+[cite_start]DDFormer was evaluated on five real-world datasets: **MSL, NIPS-TS-GECCO, SMAP, SMD, and SWAT** [cite: 442-447].
 
-![Metric Comparison](figures/duibi.jpg)
-[cite_start]*Figure 2: Model performance comparison based on Precision, Recall, and F1-score[cite: 531].*
+![Results](figures/duibi.png)
+[cite_start]*Figure 2: Performance comparison highlighting DDFormer's superiority in Precision, Recall, and F1-score[cite: 531].*
 
-| Metric | [cite_start]DDFormer Average Improvement [cite: 493] |
-| :--- | :--- |
-| **Precision** | +10.7% |
-| **Recall** | +5.23% |
-| **F1-score** | +5.13% |
+[cite_start]Compared to baseline averages, DDFormer achieves[cite: 493]:
+* **Precision**: +10.7%
+* **Recall**: +5.23%
+* **F1-score**: +5.13%
 
 ---
 
 ## 🚀 Getting Started
 
 ### Environment Requirements
-* [cite_start]**Hardware**: One NVIDIA V100 GPU (32GB), 10 vCPU cores, 64GB RAM[cite: 484].
-* [cite_start]**Software**: Python 3.12, PyTorch 2.5.1, CUDA 12.4[cite: 485].
+* [cite_start]**Python**: 3.12 [cite: 485]
+* [cite_start]**PyTorch**: 2.5.1 [cite: 485]
+* [cite_start]**CUDA**: 12.4 [cite: 485]
+* [cite_start]**Hardware**: One NVIDIA V100 GPU (32GB) recommended[cite: 484].
 
 ### Installation
 ```bash
