@@ -127,16 +127,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'checkpoints/..._checkpo
 ## 🖋️ Citation
 
 If you find DDFormer useful for your research, please consider citing our paper:
-```bibtex
-@article{feng2026dual,
-  title={Dual-Domain Transformer with Flexible Channel Dependence Strategy for Time Series Anomaly Detection},
-  author={Feng, Quanxi and Zhou, Rui and Lin, Bin and Yen, Gary G},
-  journal={TBD (Elsevier)},
-  year={2026}
-}
-```
 
----
 
 ## 🙏 Acknowledgements
 
