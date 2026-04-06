@@ -41,6 +41,8 @@ DDFormer jointly models temporal and channel dimensions through six core stages:
 The CME utilizes a **Gumbel-Softmax** reparameterization trick to generate a differentiable, sparse, and directed binary mask. This ensures that only relevant channels provide information guidance, preserving the robustness of channel independence where necessary.
 
 ![CME Algorithm](figures/image_8dab4c.png)
+
+
 *Algorithm 1: Workflow of the Channel Mask Encoder.*
 
 ---
