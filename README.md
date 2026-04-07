@@ -4,7 +4,7 @@
 [![Paper](https://img.shields.io/badge/Paper-Elsevier-blue)](#)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![PyTorch 2.5](https://img.shields.io/badge/PyTorch-2.5.1-red.svg)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 This repository contains the official PyTorch implementation of the paper: **"Dual-Domain Transformer with Flexible Channel Dependence Strategy for Time Series Anomaly Detection"**. DDFormer effectively addresses "cross-channel contamination" and multi-scale temporal modeling through a dual-domain approach, preventing system failures in real-world applications.
 
