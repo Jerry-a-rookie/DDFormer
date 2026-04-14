@@ -51,7 +51,6 @@ The CME utilizes a **Gumbel-Softmax** reparameterization trick to generate a dif
 
 DDFormer was rigorously evaluated on five real-world datasets: **MSL, NIPS-TS-GECCO, SMAP, SMD, and SWAT**. 
 
-![Results](figures/duibi.png)
 *Figure 2: Performance comparison highlighting DDFormer's superiority in Precision, Recall, and F1-score.*
 
 Compared to baseline averages, DDFormer achieves remarkable improvements:
