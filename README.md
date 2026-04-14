@@ -34,13 +34,13 @@ This repository contains the official PyTorch implementation of the paper: **"Du
 
 DDFormer jointly models temporal and channel dimensions through six core stages: Input Normalization, Frequency & Time Channel Distance Layer (FTCD), Channel Mask Encoding, Multi-Scale Patching, Global-Local Attention, and Contrastive Learning.
 
-![DDFormer Architecture](figures/Figure_3.png)
+<img src="figures/Figure_3.png" alt="DDFormer Architecture" width="70%">
 *Figure 1: Overall framework of DDFormer, detailing the Channel Mask Encoder and Global-Local Attention modules.*
 
 ### Channel Mask Encoder (CME)
 The CME utilizes a **Gumbel-Softmax** reparameterization trick to generate a differentiable, sparse, and directed binary mask. This ensures that only relevant channels provide information guidance, preserving the robustness of channel independence where necessary.
 
-![CME Algorithm](figures/image_8dab4c.png)
+<img src="figures/image_8dab4c.png" alt="CME Algorithm" width="70%">
 
 
 *Algorithm 1: Workflow of the Channel Mask Encoder.*
